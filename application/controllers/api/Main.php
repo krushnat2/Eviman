@@ -313,7 +313,7 @@ class Main extends BD_Controller {
         }
     }
 
-    //user details save data
+    //user details save data by krushna
     public function user_deatils_post()
     {
         $user_id = $this->post('user_id'); 
