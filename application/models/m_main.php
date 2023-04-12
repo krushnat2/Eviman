@@ -26,6 +26,9 @@ class M_main extends CI_Model{
 	function driver_vehicle_deatils_insert($data) {
 		return $this->db->insert('tbl_driver_vehicle',$data);
 	}
+	function user_registeration_insert($data) {
+		return $this->db->insert('tbl_user',$data);
+	}
 
 	
 }
