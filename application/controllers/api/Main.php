@@ -399,9 +399,10 @@ class Main extends BD_Controller {
 
         $data['user_type_id']='3';
         $data['user_name']=$this->post('user_name');
-        $data['password']=$this->post('password');
+        $data['password']=sha1($this->post('password'));
         $data['user_mobile']=$this->post('user_mobile');
-        $data['user_mail']=$this->post('user_dob');
+        $data['user_mail']=$this->post('user_mail');
+        $data['user_dob']=$this->post('user_dob');
         $data['user_logo']=$this->post('user_logo');
         $data['user_address']=$this->post('user_address');
         $data['user_image']=$this->post('user_image');
@@ -432,9 +433,10 @@ class Main extends BD_Controller {
 
         $data['user_type_id']='2';
         $data['user_name']=$this->post('user_name');
-        $data['password']=$this->post('password');
+        $data['password']=sha1($this->post('password'));
         $data['user_mobile']=$this->post('user_mobile');
-        $data['user_mail']=$this->post('user_dob');
+        $data['user_mail']=$this->post('user_mail');
+        $data['user_dob']=$this->post('user_dob');
         $data['user_logo']=$this->post('user_logo');
         $data['user_address']=$this->post('user_address');
         $data['user_image']=$this->post('user_image');
