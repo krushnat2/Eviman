@@ -29,6 +29,37 @@ class M_main extends CI_Model{
 	function user_registeration_insert($data) {
 		return $this->db->insert('tbl_user',$data);
 	}
+	//user status update by id
+	function user_status_update($data,$id) {
+			   $this->db->where("id", $id);
+		return $this->db->update('tbl_user',$data);
+	}
+	//driver vehicle status update by id
+	function driver_vehicle_status_update($data,$id) {
+			   $this->db->where("id", $id);
+		return $this->db->update('tbl_driver_vehicle',$data);
+	}
+
+//user data update
+	function user_data_update($data,$id) {
+		 $this->db->where("id", $id);
+		return $this->db->update('tbl_user',$data);
+	}
+//user details data update
+	function user_deatils_update($data,$id) {
+		$this->db->where("id", $id);
+		return $this->db->update('tbl_user_details',$data);
+	}
+//driver details update
+	function driver_deatils_update($data,$id) {
+		$this->db->where("id", $id);
+		return $this->db->update('tbl_driver_details',$data);
+	}
+//driver vehicle update 
+	function driver_vehicle_deatils_update($data,$id) {
+		$this->db->where("id", $id);
+		return $this->db->update('tbl_driver_vehicle',$data);
+	}
 
 	
 }
