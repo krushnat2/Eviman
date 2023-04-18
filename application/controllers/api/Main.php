@@ -553,6 +553,97 @@ class Main extends BD_Controller {
 
     }
 
+    //Change user status
+    public function users_status_update_by_uid_put()
+    {
+        $id = (int) $this->put('user_id');
+        $data['user_status_id']=$this->put('user_status_id');
+
+        // Validate the id.
+        if ($id <= 0)
+        {
+            // Set the response and exit
+            $this->response(NULL, REST_Controller::HTTP_BAD_REQUEST); // BAD_REQUEST (400) being the HTTP response code
+        }
+        else{
+
+            if ($data['user_status_id'])
+            {
+               $update = $this->M_main->user_status_update_by_userid($data, $id);
+                if($update)
+                {
+                    $details = ['status' => TRUE,'message' => 'status update successfully'];
+                    $this->set_response($details, REST_Controller::HTTP_OK);  // OK (200) being the HTTP response code
+                }
+                else{
+                     $this->response([
+                    'status' => FALSE,
+                    'message' => 'Could not update the user status'
+                ], REST_Controller::HTTP_INTERNAL_SERVER_ERROR); // INTERNAL_SERVER_ERROR (500) being the HTTP response code
+                }
+            }
+            else
+            {
+                // Set the response and exit
+                $this->response([
+                    'status' => FALSE,
+                    'message' => 'No status data found'
+                ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
+            }
+            
+            
+        }
+
+        
+
+    }
+
+    //Change driver vehicle status by driver id
+    public function driver_vehicle_status_update_bydid_put()
+    {
+        $id = (int) $this->put('driver_id');
+        $data['vehicle_status_id']=$this->put('vehicle_status_id');
+
+        // Validate the id.
+        if ($id <= 0)
+        {
+            // Set the response and exit
+            $this->response(NULL, REST_Controller::HTTP_BAD_REQUEST); // BAD_REQUEST (400) being the HTTP response code
+        }
+        else{
+
+            if ($data['vehicle_status_id'])
+            {
+               $update = $this->M_main->driver_vehicle_status_update_by_driverid($data, $id);
+                // $this->some_model->update_something($id);
+                if($update)
+                {
+                    $details = ['status' => TRUE,'message' => 'status update successfully'];
+                    $this->set_response($details, REST_Controller::HTTP_OK);  // OK (200) being the HTTP response code
+                }
+                else{
+                     $this->response([
+                    'status' => FALSE,
+                    'message' => 'Could not update the user status'
+                ], REST_Controller::HTTP_INTERNAL_SERVER_ERROR); // INTERNAL_SERVER_ERROR (500) being the HTTP response code
+                }
+            }
+            else
+            {
+                // Set the response and exit
+                $this->response([
+                    'status' => FALSE,
+                    'message' => 'No status data found'
+                ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
+            }
+            
+            
+        }
+
+        
+
+    }
+
      // user update data by id
     public function user_update_data_put()
     {

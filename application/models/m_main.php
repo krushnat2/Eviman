@@ -40,6 +40,17 @@ class M_main extends CI_Model{
 		return $this->db->update('tbl_driver_vehicle',$data);
 	}
 
+	//user status update by id
+	function user_status_update_by_userid($data,$id) {
+			   $this->db->where("user_id", $id);
+		return $this->db->update('tbl_user',$data);
+	}
+	//driver vehicle status update by id
+	function driver_vehicle_status_update_by_driverid($data,$id) {
+			   $this->db->where("driver_id", $id);
+		return $this->db->update('tbl_driver_vehicle',$data);
+	}
+
 //user data update
 	function user_data_update($data,$id) {
 		 $this->db->where("id", $id);
